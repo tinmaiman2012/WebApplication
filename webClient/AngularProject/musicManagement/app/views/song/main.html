@@ -1,0 +1,173 @@
+<!--<div class="msm-section-right-content-bottom" >-->
+
+<div class="container">
+  <bread-Crumbs link-ctrl="linkCtrl" view-link-ctrl="viewLinkCtrl" current-Page-Ctrl="currentPageCtrl"></bread-Crumbs>
+
+  <div>
+
+    <div>
+
+      <div class="msm-box-control">
+        <button id="btnAddSong" ng-show="showButtonAddSong" ng-click="goToCreateSong()"
+                class="btn btn-primary msm-box-control-button"
+                data-toggle="tooltip" data-placement="top" title="{{'msmBtn.btnCreate'| i18next}}">
+          <span class="glyphicon glyphicon-plus"></span>
+        </button>
+        <button ng-show="showButtonDeleteMulSong" id="btnDeleteAll" ng-disabled="enableDeleteMul"
+                class="btn btn-danger msm-box-control-button" data-toggle="modal"
+                data-target=".bs-deleteMulti-modal-lg"
+                data-toggle="tooltip" data-placement="top" title="{{'msmBtn.btnDelete'| i18next}}">
+          <span class="glyphicon glyphicon-trash"></span>
+        </button>
+        <button id="btnSearchSong" ng-show="showButtonSearchSong" ng-click="clickSearchSong($event)"
+                class="btn btn-info msm-box-control-button" ng-click=""
+                data-toggle="tooltip" data-placement="top" title="{{'msmBtn.btnSearch'| i18next}}">
+          <span class="glyphicon glyphicon-search"></span>
+        </button>
+
+        <input ng-focus="focusTextbox" ng-show="showInputSearchSong" ng-model="keySearch" type="text"
+               class="form-control" id="msm-cls-id-search" placeholder="{{'msmBtn.txtPlaceholder'| i18next}}">
+        <!-- inout moi-->
+          <span ng-show="showCloseSearchSong" id="msm-cls-id-close-input-search-song"
+                ng-click="clickCloseSearch($event)"
+                class="glyphicon glyphicon-remove"></span>
+
+
+        <!-- end-->
+      </div>
+
+
+      <div class="msm-div-parent-of-heading">
+
+        <h2 class="msm-font-major msm-font-size-screen-min">
+          {{'msmHeading.txtHeadingSongList'| i18next}}
+        </h2>
+
+
+      </div>
+
+      <div class="msm-parent-box-small">
+        <!--click-anywhere-but-here="effectShow = '';flashBoxSmall = true;"-->
+
+        <span  ng-click="clickParentBoxSmall()" class="msm-show-menu-small glyphicon glyphicon-th msm-font-major msm-font-size-screen-min">
+
+
+        </span>
+
+        <div class="msm-box-control-small" ng-class="effectShow">
+
+          <button ng-show="showButtonAddSong" ng-click="goToCreateSong()"
+                  class="btn btn-primary msm-box-control-button"
+                  data-toggle="tooltip" data-placement="top" title="{{'msmBtn.btnCreate'| i18next}}">
+            <span class="glyphicon glyphicon-plus"></span>
+          </button>
+          <button ng-show="showButtonDeleteMulSong" ng-disabled="enableDeleteMul"
+                  class="btn btn-danger msm-box-control-button" data-toggle="modal"
+                  data-target=".bs-deleteMulti-modal-lg"
+                  data-toggle="tooltip" data-placement="top" title="{{'msmBtn.btnDelete'| i18next}}">
+            <span class="glyphicon glyphicon-trash"></span>
+          </button>
+          <button ng-show="showButtonSearchSong" ng-click="clickSearchSong($event)"
+                  class="btn btn-info msm-box-control-button" ng-click=""
+                  data-toggle="tooltip" data-placement="top" title="{{'msmBtn.btnSearch'| i18next}}">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+          <div class="msm-parent-of-text-box-and-close-small" >
+            <input ng-show="showInputSearchSong" ng-model="keySearch" type="text"
+                   class="form-control msm-input-search-small" placeholder="{{'msmBtn.txtPlaceholder'| i18next}}">
+            <!-- inout moi-->
+            <span ng-show="showCloseSearchSong"
+                  ng-click="clickCloseSearch($event)"
+                  class="glyphicon glyphicon-remove msm-close-absolute"></span>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+         aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="panel-heading">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 class="panel-title">{{'msmCreateSong.txtPanelDeleteSongCurrentTitle'| i18next}}</h3>
+          </div>
+          <div class="panel-body">
+            {{'msmCreateSong.txtContentPanelDeleteSongCurrentTitle'| i18next}}
+          </div>
+          <div class="panel-footer">
+            <button type="button" class="btn btn-default" ng-click="findIdSongCurrentAfterDelete(song)"
+                    data-dismiss="modal">Ok
+            </button>
+            <button type="button" class="btn btn-default" ng-click="closeDeleteBox()" data-dismiss="modal">Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade bs-deleteMulti-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+         aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="panel-heading">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 class="panel-title">{{'msmCreateSong.txtPanelDeleteSongMultiTitle'| i18next}}</h3>
+          </div>
+          <div class="panel-body">
+            {{'msmCreateSong.txtContentPanelDeleteSongMultiTitle'| i18next}}
+          </div>
+          <div class="panel-footer">
+            <!--<button type="button" class="btn btn-default" ng-click="deleteMultiplesSong()">Ok</button>-->
+            <!--<button type="button" class="btn btn-default" ng-click="closeDelseteBox()">Cancel</button>-->
+            <button type="button" class="btn btn-default" ng-click="deleteMultiplesSong()" data-dismiss="modal">Ok
+            </button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div>
+
+      <form>
+        <div id="msm-parent-table-song">
+          <table-song
+            valuecheckallview='valueCheckAllView'
+            revert="revert"
+            table-data="songList"
+            keysearch="keySearch"
+            get-id-delete="getIdDelete"
+            go-to-edit = 'goToEditSong'
+            show-column-one = 'showColumnOne'
+            show-column-four = 'showColumnFour'
+            show-column-four-has-edit-btn = 'showColumnFourHasEditBtn'
+            ng-init="showColumnOne =true; showColumnFour=true;showColumnFourHasEditBtn=true"
+          >
+          </table-song>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+<!--</div>-->
+
+
+<!---->
+
+
+
+
+
+

@@ -1,0 +1,63 @@
+{
+
+  "msmHeading":{
+    "txtHome":"Home",
+    "txtLogo": "Music Manager",
+    "txtMenuSong": "Songs",
+    "txtMenuPlaylist": "Playlists",
+    "txtHeadingSongList": "Manage Songs",
+    "txtHeadingEditSong": "Edit Song",
+    "txtHeadingCreateSong": "Create Song",
+    "txtHeadingPlaylist":"Manage Playlists",
+    "txtHeadingEditPlaylist":"Edit Playlist"
+  },
+  "msmBtn":{
+    "btnCreate": "Add",
+    "btnDelete": "Delete",
+    "btnEdit": "Edit",
+    "btnSearch": "Search",
+    "btnCancel": "Cancel",
+    "txtAction" :"Action",
+    "txtPlaceholder":"Search any things"
+
+  },
+  "msmCreateSong":{
+    "txtSongName": "Song Name",
+    "txtSongArtist": "Artist",
+    "txtInfoError":"*Song name cannot be empty",
+    "txtInfoSuccess":"Add song success!!!",
+    "txtPlaceholderNameSong":"enter new song name",
+    "txtPlaceholderArtist": "enter artist",
+
+
+    "txtPanelDeleteSongCurrentTitle" : "Delete Song",
+    "txtContentPanelDeleteSongCurrentTitle" :" Do you want to delete this song?",
+    "txtPanelDeleteSongMultiTitle" : "Delete Multiples Song",
+    "txtContentPanelDeleteSongMultiTitle" :"Do you want to delete chosen?"
+  },
+  "msmCreateList":{
+    "txtListName": "List Name",
+    "txtListDateCreated": "Date created",
+    "txtInfoErrorNameList":"*Name cannot be empty",
+    "txtPlaceholderNameList":"enter new list name",
+    "txtPanelAddListCurrentTitle" : "Add new list",
+    "txtChooseSong":"Choose Song",
+    "txtSongChose":"Song Chose",
+
+    "txtPanelAddSongInListCurrentTitle":"Add New Song In This List",
+
+    "txtPanelDeleteCurrentSongListCurrentTitle" : "Delete this song in",
+    "txtContentDeleteCurrentSongListCurrentTitle" : "Do you want to delete this song in current list?",
+
+    "txtPanelDeleteMultiSongListCurrentTitle" : "Delete list",
+    "txtContentDeleteMultiSongListCurrentTitle" : "Do you want to delete songs in current list?",
+
+    "txtPanelDeleteListCurrentTitle" : "Delete List",
+    "txtContentPanelDeleteListCurrentTitle" :" Do you want to delete this List?",
+    "txtPanelDeleteListMultiTitle" : "Delete Multiples List",
+    "txtContentPanelDeleteListMultiTitle" :"Do you want to delete chosen?"
+  }
+
+
+
+}

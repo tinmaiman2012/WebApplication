@@ -1,0 +1,64 @@
+{
+
+
+  "msmHeading":{
+    "txtHome":"Trang chủ",
+    "txtLogo": "Quản Lý Âm Nhạc",
+
+    "txtMenuSong": "Bài Hát",
+    "txtMenuPlaylist": "Danh Sách Nhạc",
+
+    "txtHeadingSongList": "Quản Lý Bài Hát",
+    "txtHeadingEditSong": "Chỉnh Sửa Bài Hát",
+    "txtHeadingCreateSong": "Tạo Bài Hát",
+
+    "txtHeadingPlaylist":"Quản Lý Danh Sách Phát",
+    "txtHeadingEditPlaylist":"Chỉnh Sửa Danh Sách Phát"
+  },
+  "msmBtn":{
+    "btnCreate": "Thêm",
+    "btnDelete": "Xóa",
+    "btnEdit": "Sửa",
+    "btnSearch": "Tìm kiếm",
+    "btnCancel": "Hủy bỏ",
+    "txtAction" :"Hành động",
+    "txtPlaceholder":"Nhập tìm kiếm"
+  },
+  "msmCreateSong":{
+    "txtSongName": "Tên bài hát",
+    "txtSongArtist": "Tác giả",
+    "txtInfoError":"*Tên bài hát không được rổng",
+    "txtInfoSuccess":"Thêm thành công!!!",
+    "txtPlaceholderNameSong":"Nhập tên bài hát mới",
+    "txtPlaceholderArtist": "Nhập tên tác giả",
+
+    "txtPanelDeleteSongCurrentTitle" : "Xóa bài hát",
+    "txtContentPanelDeleteSongCurrentTitle" :"Bạn có chắc muốn xóa bài hát này?",
+    "txtPanelDeleteSongMultiTitle" : "Xóa nhiều bài hát",
+    "txtContentPanelDeleteSongMultiTitle" :"Bạn có chắc muốn xóa các bài hát đã chọn?"
+  },
+  "msmCreateList":{
+    "txtListName": "Tên",
+    "txtListDateCreated": "Ngày tạo",
+    "txtInfoErrorNameList":"*Tên không được rổng",
+    "txtPlaceholderNameList":"Nhập tên danh sách",
+    "txtPanelAddListCurrentTitle" : "Thêm danh sách mới",
+    "txtChooseSong":"Chọn bài hát",
+    "txtSongChose":"Những bài hát đã chọn",
+
+    "txtPanelAddSongInListCurrentTitle":"Thêm bài hát cho danh sách này",
+
+    "txtPanelDeleteCurrentSongListCurrentTitle" : "Xóa bài hát hiện tại trong",
+    "txtContentDeleteCurrentSongListCurrentTitle" : "Bạn có chắc muốn xóa bài hát hiện tại trong danh sách nàys?",
+
+    "txtPanelDeleteMultiSongListCurrentTitle" : "Xóa các bài hát",
+    "txtContentDeleteMultiSongListCurrentTitle" : "Bạn có muốn xóa các bài hát đã chọn trong danh sách này?",
+
+
+    "txtPanelDeleteListCurrentTitle" : "Xóa danh sách",
+    "txtContentPanelDeleteListCurrentTitle" :"Bạn có chắc muốn xóa danh sách phát hiện tại?",
+    "txtPanelDeleteListMultiTitle" : "Xóa nhiều danh sách",
+    "txtContentPanelDeleteListMultiTitle" :"Bạn có muốn xóa các danh sách phát đã chọn?"
+  }
+
+}

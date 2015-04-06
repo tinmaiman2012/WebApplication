@@ -1,0 +1,140 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css({.tmp,app}) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+
+  <link rel="stylesheet" href="styles/stylus/index.css">
+  <link rel="stylesheet" href="styles/stylus/song/main.css">
+
+  <!-- endbuild -->
+</head>
+<body ng-app="musicApp" >
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
+
+
+<div id="msm-id-main-page" ng-click="clickMain()"  ng-controller="MainCtrl" resize style-section="style" main-style="mainStyle" >
+
+
+  <div class="msm-header-right">
+    <div class="msm-parent-of-language">
+      <select  class="form-control msm-font-major" ng-model="myLang" ng-options="lang.name for lang in myLangs">
+      </select>
+    </div>
+    <div class="msm-parent-of-language-when-screen-small msm-font-major">
+        <span class="glyphicon glyphicon-globe {{english}}" ng-click="changeLng('en')"
+              data-toggle="tooltip" data-placement="bottom" title="English"></span>
+        <span class="glyphicon glyphicon-star {{vietnam}}" ng-click="changeLng('vi')"
+              data-toggle="tooltip" data-placement="bottom" title="Tiếng Việt"></span>
+
+    </div>
+  </div>
+
+  <header class="msm-header">
+    <div class="msm-header-left" ng-init="myVar = false">
+      <h2>
+        <div class="msm-icon-normal">
+          <span class="glyphicon glyphicon-headphones"></span>
+          <span>{{'msmHeading.txtLogo'| i18next}}</span>
+        </div>
+        <div class="msm-icon-menu-phone">
+          <!--ng-controller="SongCtrl"-->
+          <div click-anywhere-but-here="style = {width: '0'};mainStyle = { width: '100%'};flashIcon=true" ng-click ='clickIconPhone();' class="msm-icon-phone">
+            <!-- ng-click="myVar = !myVar" -->
+            <div class="glyphicon glyphicon-list"></div>
+          </div>
+          <div class="msm-text-phone">
+            <div>{{'msmHeading.txtLogo'| i18next}}</div>
+          </div>
+        </div>
+      </h2>
+    </div>
+  </header>
+
+  <section class="msm-section">
+
+    <div class="msm-section-left-content"  ng-style="style">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="{{activeSong}} "><a class="msm-item" ng-href="#/song">{{'msmHeading.txtMenuSong'| i18next}}</a></li>
+        <li class="{{activePlaylist}}"><a class="msm-item" ng-href="#/playlist">{{'msmHeading.txtMenuPlaylist'| i18next}}</a></li>
+      </ul>
+    </div>
+
+    <div  class="msm-section-right-content" ng-view="" ng-style="mainStyle"></div>
+
+    <div class="msm-clear-both"></div>
+
+  </section>
+
+  <footer class="msm-footer">
+    <div>
+      Copyright @LTD-UI-TMA
+
+    </div>
+  </footer>
+
+
+</div>
+
+
+
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/i18next/i18next.js"></script>
+<!-- endbuild -->
+<script src="bower_components/ng-i18next/dist/ng-i18next.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/index/main.js"></script>
+<script src="scripts/song/services/songServicesDataSong.js"></script>
+<script src="scripts/song/services/revertServices.js"></script>
+<script src="scripts/playlist/services/playlistServicesDataPlaylist.js"></script>
+
+<script src="scripts/song/controllers/SongController.js"></script>
+<script src="scripts/song/controllers/CreateSongController.js"></script>
+<script src="scripts/song/controllers/EditSongController.js"></script>
+<script src="scripts/song/directives/songTableDirective.js"></script>
+<script src="scripts/song/directives/breadCrumbsDirective.js"></script>
+<script src="scripts/song/directives/resizeWindowDirective.js"></script>
+<script src="scripts/song/directives/clickOutElementDirective.js"></script>
+
+<script src="scripts/playlist/controllers/PlaylistController.js"></script>
+<script src="scripts/playlist/controllers/EditPlaylistController.js"></script>
+<script src="scripts/playlist/directives/playlistTableDirective.js"></script>
+<script src="scripts/playlist/directives/focusTextboxDirective.js"></script>
+
+</body>
+</html>

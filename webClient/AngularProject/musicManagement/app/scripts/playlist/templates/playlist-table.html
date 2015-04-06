@@ -1,0 +1,47 @@
+<table class="table">
+  <thead>
+  <tr class="msm-tr-title">
+    <td class=" msm-td-width-min"><input type="checkbox" ng-model="valueCheckAllView.select" id="msm-id-check-all-song"
+                                         ng-click="checkAllPlay()"></td>
+    <td class="msm-td-hide msm-td-width-min">#</td>
+    <td>
+      <div class="msm-content-div-in-td">{{'msmCreateList.txtListName'| i18next}}</div>
+    </td>
+
+    <td class="msm-td-hide">
+      <div class="msm-content-div-in-td">{{'msmCreateList.txtListDateCreated'| i18next}}</div>
+    </td>
+    <td class="msm-td-action">{{'msmBtn.txtAction'| i18next}}</td>
+  </tr>
+  </thead>
+  <tbody class="scrollContent">
+  <tr ng-class='{clsChose: valueCheckAllView.select || play.select}'
+      class='msm-tr-record' ng-repeat='play in dataArr |filter: keySearch |filter:filterPlay |orderBy :"name"'>
+    <!--ng-class-even='"even"' ng-class-odd='"odd"'-->
+    <td class="msm-td-width-min">
+      <input ng-model="play.select" class="checkCurrentSong" type="checkbox" ng-click="checkCurrentPlay(play)">
+    </td>
+    <td class="msm-td-hide msm-td-width-min">{{$index + 1}}</td>
+    <td>
+      <div class="msm-content-div-in-td"> {{play.name}}</div>
+    </td>
+    <td class="msm-td-hide">
+      <div class="msm-content-div-in-td">{{play.date}}</div>
+    </td>
+    <td class="msm-td-action">
+      <button type="button" class="btn btn btn-primary" ng-click="goToEdit()(play)"
+              data-toggle="tooltip" data-placement="top" title="{{'msmBtn.btnEdit'| i18next}}">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="msm-td-action_text"></span>
+      </button>
+      <button ng-click="getIdDelete()(play)" class="btn btn-warning" data-toggle="modal"
+              data-target=".bs-example-modal-lg"
+              data-toggle="tooltip" data-placement="top" title="{{'msmBtn.btnDelete'| i18next}}">
+        <span class="glyphicon glyphicon-trash"></span>
+        <span class="msm-td-action_text"></span>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+
+</table>

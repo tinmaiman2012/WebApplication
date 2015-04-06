@@ -1,0 +1,63 @@
+<table class="table" >
+  <!--class="table"-->
+  <thead>
+  <tr class="msm-tr-title">
+    <td class="msm-td-width-min">
+
+
+      <input type="checkbox" ng-model="valueCheckAllView.select"  ng-click="checkAllSong()">
+
+    </td>
+    <td class="msm-td-hide msm-td-width-min" ng-show="showColumnOne">
+      #
+    </td>
+    <td>
+      <div class="msm-content-div-in-td">{{'msmCreateSong.txtSongName'| i18next}}</div>
+    </td>
+    <td class="msm-td-hide">
+      <div class="msm-content-div-in-td">{{'msmCreateSong.txtSongArtist'| i18next}}</div>
+    </td>
+    <td class="msm-td-action" ng-show="showColumnFour">
+      {{'msmBtn.txtAction'| i18next}}
+    </td>
+  </tr>
+  </thead>
+  <tbody class="scrollContent">
+  <tr ng-class='{clsChose: valueCheckAllView.select || song.select}'
+      class='msm-tr-record' ng-repeat='song in dataArr |filter: keySearch |filter:filterSong |orderBy :"name"'
+    >
+    <!-- ng-class-even='"even"' ng-class-odd='"odd"'-->
+    <td class="msm-td-width-min" >
+      <input ng-model="song.select" class="checkCurrentSong" type="checkbox" ng-click="checkCurrentSong(song)">
+    </td>
+    <td class="msm-td-hide msm-td-width-min" ng-show="showColumnOne">
+      {{$index + 1}}
+    </td>
+    <td>
+      <div class="msm-content-div-in-td">{{song.name}}</div>
+      <div class="msm-content-div-in-td msm-min-screen-show">{{song.author}}</div>
+    </td>
+    <td class="msm-td-hide">
+      <div class="msm-content-div-in-td"><span>{{song.author}}</span></div>
+    </td>
+    <td class="msm-td-action" ng-show="showColumnFour">
+
+      <button ng-show="showColumnFourHasEditBtn" type="button" class="btn btn-primary" ng-click="goToEdit()(song)"
+              data-toggle="tooltip" data-placement="top" title="{{'msmBtn.btnEdit'| i18next}}">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="msm-td-action_text"></span>
+      </button>
+      <button ng-click="getIdDelete()(song)" class="btn btn-warning" data-toggle="modal"
+              data-target=".bs-example-modal-lg"
+              data-toggle="tooltip" data-placement="top" title="{{'msmBtn.btnDelete'| i18next}}">
+        <span class="glyphicon glyphicon-trash"></span>
+        <span class="msm-td-action_text"></span>
+      </button>
+
+      <!---->
+    </td>
+  </tr>
+
+  </tbody>
+
+</table>
