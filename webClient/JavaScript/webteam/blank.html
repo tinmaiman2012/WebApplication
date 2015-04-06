@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Demo</title>
+
+    <!-- Core CSS - Include with every page -->
+    <link href="js/jquery-ui/jquery-ui.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Page-Level Plugin CSS - Blank -->
+
+    <!-- SB Admin CSS - Include with every page -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+  <style>
+    a{
+     color: #ffffff
+    }
+   .cls-hide{
+        display: none;
+    }
+    .cls-show{
+        display: block !important;
+    }
+   /*Jquery UI Css Drag and Drop*/
+
+      #gallery { float: left; width: 65%; min-height: 12em; }
+      .gallery.custom-state-active { background: #eee; }
+      .gallery li { float: left; width: 120px; padding: 0.4em; margin: 0 0.4em 0.4em 0; text-align: center; }
+      .gallery li h5 { margin: 0 0 0.4em; cursor: move; }
+      .gallery li a { float: right; }
+      .gallery li a.ui-icon-zoomin { float: left; }
+      .gallery li img { width: 100%; cursor: move; }
+     
+      #trash { float: right; width: 32%; min-height: 18em; padding: 1%; }
+      #trash h4 { line-height: 16px; margin: 0 0 0.4em; }
+      #trash h4 .ui-icon { float: left; }
+      #trash .gallery h5 { display: none; }
+   /*end drag and drop*/
+  </style>
+
+    <script type="text/template" id="calculatorTemplate">
+        <div class="row">
+                <div class="col-xs-12">
+                    <h1 class="page-header">Salary Calculator</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+        </div>
+        <div class="row">
+                <div class="col-xs-12 form-group">
+
+                     <div class="col-xs-1">
+                        <label for="txtBasic">Basic: </label>
+                     </div>
+
+                     <div class="col-xs-8">
+                        <input type="text" class="form-control" id="txtBasic">
+                     </div>
+                </div>
+
+                <div class="col-xs-12 form-group">
+                     <div class="col-xs-1">
+                        <label for="txtHra">Hra:</label>
+                     </div>
+                     <div class="col-xs-8"><input type="text" class="form-control" id="txtHra">
+                     </div>
+                </div>
+
+                <div class="col-xs-12 form-group">
+                     <div class="col-xs-1">
+                        <label for="txtDa">Da:</label>
+                     </div>
+                     <div class="col-xs-8"><input type="text" class="form-control" id="txtDa">
+                     </div>
+                </div>
+                <div class="col-xs-12 form-group">
+                     <div class="col-xs-1">
+                        <label for="txtBasic">Tax:</label>
+                     </div>
+                     <div class="col-xs-8">
+                        <input autocomplete type="range" id="rangeTax" min="0" max="100" value="0">
+                        <span id="spanTax">[Tax%]</span>
+                     </div>
+                </div>
+                <div class="col-xs-12 form-group">
+
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <input type="button" class="btn btn-default" id="btnCalculator" value="Calculator">
+                    </div>
+                </div>
+                <div class="col-xs-12 form-group">     
+                     <div class="col-xs-1">
+                        <label for="result">Salary:</label>
+                     </div>       
+                    <div class="col-xs-8" id="result">
+                        </div>
+                    </div>
+        </div>
+    </script>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <nav  class="navbar navbar-default navbar-fixed-top" role="navigation" style="border: none !important; margin-bottom: 0 ;background: linear-gradient(to bottom,#2c3e50 0%,#2c3e50 100%);">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a style="color: #ffffff; font-size: 30px" class="navbar-brand" href="#"><b>Web Team</b></a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul  class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a  class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                      <span style=" margin-left: -10px; background: red; margin-top: -15px; border-radius: 50%; padding: 4px !important;" class="label label-success label-circle pull-right">18</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>ltandat@tma.com.vn</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>create or edit somethings if you want</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                          <a href="#">
+                            <div>
+                              <strong>ltandat@tma.com.vn</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                            </div>
+                            <div>create or edit somethings if you want</div>
+                          </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                          <div>
+                            <strong>ltandat@tma.com.vn</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                          </div>
+                          <div>create or edit somethings if you want</div>
+                        </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>All Messages</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-messages -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-tasks">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 1</strong>
+                                        <span class="pull-right text-muted">40% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <span class="sr-only">40% Complete (success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 2</strong>
+                                        <span class="pull-right text-muted">20% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                            <span class="sr-only">20% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 3</strong>
+                                        <span class="pull-right text-muted">60% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                            <span class="sr-only">60% Complete (warning)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 4</strong>
+                                        <span class="pull-right text-muted">80% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                            <span class="sr-only">80% Complete (danger)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Tasks</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-tasks -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i> New Task
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div style="background:#2c3e50; "  class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard <span class="label label-danger pull-right">Updated</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> JavaScript<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#"><i class="fa fa-dashboard fa-fw"></i> Basic <span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="#">Typeof an Instanceof</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Object and Array</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Object and Function</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Context of Function</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                 <li>
+                                    <a href="#"><i class="fa fa-dashboard fa-fw"></i> Advance <span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="#">Apply and Call</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Prototype</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Create funtion apply UT</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Product Function</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-dashboard fa-fw"></i> Combine Html5 and Css3<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="#">Some event</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Callback funtion</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Jquery <span class="fa arrow"></span><span class="label label-success pull-right">Lib</span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Popular event in Jquery</a>
+                                </li>
+                                <li>
+                                    <a href="#calculatorTemplate" id="a-demoSalaryCalculator">Demo Salary Calculator</a>
+                                </li>
+                                <li>
+                                    <a id="a-demoAjax" href="#l">Rest Data</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> JqueryUI <span class="fa arrow"></span><span class="label label-info pull-right">New</span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a id="a-demoDragDrop" href="#">Some Interesting Demo</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- <li>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> Love</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Parent<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Somethings</a>
+                                </li>
+                                <li>
+                                    <a href="#l">Somethings</a>
+                                </li>
+                                <li>
+                                    <a href="#">Somethings</a>
+                                </li>
+                                <li>
+                                    <a href="#">Somethings</a>
+                                </li>
+                                <li>
+                                    <a href="#">Somethings</a>
+                                </li>
+                            </ul>
+                           
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown <span class="fa arrow"></span> <span style="border-radius: 50%; padding: 4px !important;" class="label label-success label-circle pull-right">18</span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Second Level Item</a>
+                                </li>
+                                <li>
+                                    <a href="#">Second Level Item</a>
+                                </li>
+                                <li>
+                                    <a href="#">Third Level <span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                    </ul>
+                                  
+                                </li>
+                            </ul>
+                        
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Blank Page</a>
+                                </li>
+                                <li>
+                                    <a href="#">Login Page</a>
+                                </li>
+                            </ul>
+                        
+                        </li> -->
+                    </ul>
+                    <!-- /#side-menu -->
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+         <div id="dragdropTemplate" class="ui-widget ui-helper-clearfix cls-hide">
+ 
+            <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
+              <li class="ui-widget-content ui-corner-tr">
+                <h5 class="ui-widget-header">High Tatras 1</h5>
+                <img src="images/high_tatras_min.jpg" alt="The peaks of High Tatras" width="96" height="72">
+                <a href="images/high_tatras.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
+                <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+              </li>
+              <li class="ui-widget-content ui-corner-tr">
+                <h5 class="ui-widget-header">High Tatras 2</h5>
+                <img src="images/high_tatras2_min.jpg" alt="The chalet at the Green mountain lake" width="96" height="72">
+                <a href="images/high_tatras2.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
+                <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+              </li>
+              <li class="ui-widget-content ui-corner-tr">
+                <h5 class="ui-widget-header">High Tatras 3</h5>
+                <img src="images/high_tatras3_min.jpg" alt="Planning the ascent" width="96" height="72">
+                <a href="images/high_tatras3.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
+                <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+              </li>
+              <li class="ui-widget-content ui-corner-tr">
+                <h5 class="ui-widget-header">High Tatras 4</h5>
+                <img src="images/high_tatras4_min.jpg" alt="On top of Kozi kopka" width="96" height="72">
+                <a href="images/high_tatras4.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
+                <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+              </li>
+            </ul>
+ 
+            <div id="trash" class="ui-widget-content ui-state-default">
+              <h4 class="ui-widget-header"><span class="ui-icon ui-icon-trash">Trash</span> Trash</h4>
+            </div>
+             
+        </div> 
+
+
+          <!-- write content here-->
+            
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Core Scripts - Include with every page -->
+    <script src="js/jquery-1.10.2.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+     <script src="js/jquery-ui/jquery-ui.js"></script>
+     <script src="js/dragdrop.js"></script>
+
+    <!-- Page-Level Plugin Scripts - Blank -->
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <script src="js/webteam.js"></script>
+    <script src="js/calculatorSalary.js"></script>
+
+    <!-- Page-Level Demo Scripts - Blank - Use for reference -->
+    ul>li.id$+password${username$}$*10
+
+</body>
+
+</html>
